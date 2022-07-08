@@ -29,7 +29,7 @@ all_args.add_argument("-r", "--rockyou", required=False,
    help="path to rockyou file (or any other used for password bruteforcing)")
 args = vars(all_args.parse_args())
 
-# Find the product
+
 targetip = (args['ip'])
 hostname = (args['hostname'])
 sub_wordlist = (args['subdomain'])
@@ -62,15 +62,15 @@ temp1 = list(map(int, temp))
 ports = str(temp1).strip("[]").replace(" ","")
 
 
-# with open('nmap.comp', 'w') as f:
-# 	print(Fore.GREEN)
-# 	print("@@Initializing standard scan ...")
-# 	print(Style.RESET_ALL)
-# 	nmapcomp = """nmap -p%s -sC -sV -vv -oN nmap.std %s""" %(ports,targetip)
-# 	# print(nmapcomp)
-# 	output_nmapcomp = os.popen(nmapcomp).read()
-# 	print(output_nmapcomp)
-# 	f.write('{}\n'.format(output_nmapcomp))
+with open('nmap.comp', 'w') as f:
+ 	print(Fore.GREEN)
+ 	print("@@Initializing standard scan ...")
+ 	print(Style.RESET_ALL)
+ 	nmapcomp = """nmap -p%s -sC -sV -vv -oN nmap.std %s""" %(ports,targetip)
+ 	# print(nmapcomp)
+ 	output_nmapcomp = os.popen(nmapcomp).read()
+ 	print(output_nmapcomp)
+ 	f.write('{}\n'.format(output_nmapcomp))
 
 if "80" in open_ports:
 	print(Fore.GREEN)
